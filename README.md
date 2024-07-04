@@ -14,18 +14,21 @@ Este projeto é um aplicativo de criptografia e descriptografia de texto que per
 
 # Funcionalidades Principais
 1. Botões de Ação:
-      Criptografia: Botão que permite criptografar o texto inserido pelo usuário.
-      Descriptografia: Botão que permite descriptografar o texto inserido.
-      Copiar: Botão que copia o texto criptografado ou descriptografado para a área de transferência.
-      Resetar: Botão que limpa os campos de entrada e saída de texto.
+
+      ° Criptografia: Botão que permite criptografar o texto inserido pelo usuário.
+      ° Descriptografia: Botão que permite descriptografar o texto inserido.
+      ° Copiar: Botão que copia o texto criptografado ou descriptografado para a área de transferência.
+      ° Resetar: Botão que limpa os campos de entrada e saída de texto.
 
 2. Sistema de Som:
-      Ambientação: Ao abrir a janela do navegador, o usuário é recebido com uma opção ao lado superior direito da pagina que permite um ambiente relaxante em quanto acessa.
+
+     ° Ambientação: Ao abrir a janela do navegador, o usuário é recebido com uma opção ao lado superior direito da pagina que permite um ambiente relaxante em quanto acessa.
 
 3. Controles de Som:
-      Play: Inicia a reprodução do som ambiente.
-      Pause: Pausa a reprodução do som.
-      Stop: Para a reprodução do som completamente.
+
+    ° Play: Inicia a reprodução do som ambiente.
+    ° Pause: Pausa a reprodução do som.
+    ° Stop: Para a reprodução do som completamente.
 
 # Interação com o Usuário
   # Campos de Texto:
