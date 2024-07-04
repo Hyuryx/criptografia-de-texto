@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia de Textos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/icone.jpg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div class="audio-player">
+        <audio id="myAudio" autoplay>
+            <source src="music/jazz.mp3" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+
+        <div class="controls">
+            <button class="player-btn" onclick="playAudio()">Play</button>
+            <button class="player-btn" onclick="pauseAudio()">Pause</button>
+            <button class="player-btn" onclick="stopAudio()">Stop</button>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="assets/video.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+    </div>
+
+    <div id="particles-js"></div>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="container__conteudo">
+            <h1 class="titulo__inicial">CRIPTOGRAFIA DE TEXTOS</h1>
+            <div class="container__texto-container">
+                <div class="container__texto">
+                    <div class="container__input-container">
+                        <textarea id="inputTexto" class="container__input" rows="4"
+                            placeholder="Digite um texto que você deseja criptografar..."></textarea>
+                        <h1 class="titulo__inicial input__titulo">Todos os caracteres maiúsculos e diacríticos serão
+                            convertidos.</h1>
+                        <div class="imagem__resposta__segunda">
+                            <img src="assets/fundo1.jpg" class="imagem__segunda" alt="Imagem da pessoa1">
+                        </div>
+                    </div>
+                </div>
+                <div class="container__texto">
+                    <div class="container__input-container">
+                        <textarea id="outputTexto" class="container__input" rows="4" readonly
+                            placeholder="Nenhuma mensagem digitada..."></textarea>
+                        <div class="imagem__resposta" id="segundaImagem">
+                            <img src="assets/fundo2.jpg" class="imagem__resposta" alt="Imagem da pessoa2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container__botoes">
+                <button class="botao__criptografar container__botao">CRIPTOGRAFIA</button>
+                <button class="botao__descriptografar container__botao">DESCRIPTOGRAFAR</button>
+                <button class="botao__copiar container__botao">COPIAR</button>
+                <button class="botao__resetar container__botao">RESETAR</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <p>Desenvolvido por <a href="https://github.com/Hyuryx?tab=repositories">Hyury</a></p>
+    </footer>
+
+    <script src="js/json.js"></script>
+    <script src="js/som.js"></script>
+
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+    
+</body>
+
+</html>

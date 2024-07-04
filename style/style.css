@@ -1,0 +1,535 @@
+/* Estilos gerais */
+html,
+body {
+    font-family: "Kode Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh; /* Define a altura do corpo para 100% da altura da janela */
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+    perspective: 1px; /* Cria um efeito de profundidade para o parallax */
+    perspective-origin: center center;
+    background-color: #000; /* Cor de fundo */
+}
+
+.audio-player {
+    position: fixed;
+    top: 0px;
+    right: 10px;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1000; /* Ajuste o z-index conforme necessário */
+}
+
+.controls {
+    margin-top: 10px;
+}
+
+.player-btn {
+    width: 120px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    background: #000000;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px; /* Para esconder a animação fora do botão */
+}
+
+.player-btn:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.player-btn:hover:before {
+    opacity: 1;
+}
+
+.player-btn:active {
+    color: #000;
+}
+
+.player-btn:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #383838;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+canvas {
+    position: absolute;
+    bottom: 0;
+    left: 0; /* ou ajuste conforme necessário */
+}
+
+/* Particles.js container */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+/* Stats.js */
+.count-particles {
+    background: #000022;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13E8E9;
+    font-size: .8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+.js-count-particles {
+    font-size: 1.1em;
+}
+
+.count-particles {
+    user-select: none; /* Padrão sem prefixo */
+    -webkit-user-select: none; /* Prefixo para navegadores WebKit como Safari e antigos versões do Chrome */
+    -moz-user-select: none; /* Prefixo para navegadores Mozilla como Firefox */
+    -ms-user-select: none; /* Prefixo para navegadores Internet Explorer */
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#stats {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+}
+
+.count-particles {
+    border-radius: 0 0 3px 3px;
+}
+
+
+/*PRIMEIRO VIDEO DE FUNDO*/
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Ajuste a opacidade conforme necessário */
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    margin-top: 20%;
+}
+
+
+
+/* Container principal */
+.container {
+    display: flex;
+    align-items: center; /* Alinha verticalmente no centro */
+    justify-content: center; /* Alinha horizontalmente no centro, se necessário */
+    height: 100vh;
+    flex-direction: column;
+    width: 90%; /* Largura do container ajustada para ser responsiva */
+    max-width: 1200px; /* Largura máxima do container */
+    margin: auto; /* Centraliza o container na página */
+    padding: 20px; /* Espaçamento interno do container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com opacidade */
+}
+
+
+/* Ajustes para tornar responsivo */
+@media (max-width: 768px) {
+    .container__texto-container {
+        flex-direction: column; /* Altera para layout de coluna */
+        align-items: center; /* Centraliza itens na coluna */
+    }
+
+    .container__texto {
+        width: 100%; /* Largura total para ocupar a coluna */
+        margin-bottom: 10px; /* Espaçamento inferior reduzido */
+    }
+
+    .container__input {
+        width: 100%; /* Ajusta a largura para 100% */
+    }
+
+    .container__botao {
+        padding: 10px 20px;
+        margin: 5px 0; /* Ajusta a margem */
+        width: 100%; /* Ajusta a largura para 100% */
+        box-sizing: border-box; /* Certifica que o padding e a border sejam inclusos na largura */
+    }
+
+    .titulo__inicial {
+        margin-top: 0; /* Remove a margem superior */
+        margin-bottom: 20px; /* Ajusta a margem inferior */
+    }
+
+    .rodape {
+        position: static; /* Remove a posição fixa no rodapé para telas menores */
+    }
+}
+
+.titulo__inicial {
+    color: white; /* Cor do texto */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 1vh; /* Espaçamento superior usando unidades relativas */
+    margin-bottom: 10vh; /* Espaçamento inferior usando unidades relativas */
+}
+
+.input__titulo {
+    font-family: 'Typography', sans-serif;
+    margin: 0; /* Remova o espaçamento ao redor */
+    text-align: left; /* Alinhamento à esquerda */
+    font-size: 11px; /* Tamanho da fonte reduzido para 12px */
+    margin-bottom: 10px; /* Adiciona um espaçamento inferior de 10px */
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Largura do container ajustada para ser responsiva */
+    max-width: 1200px; /* Largura máxima do container */
+    margin: auto; /* Centraliza o container na página */
+    padding: 20px; /* Espaçamento interno do container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0); /* Fundo branco com opacidade de 70% */
+}
+
+.container__conteudo {
+    padding: 0; /* Espaçamento interno do conteúdo */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.container__texto-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha os itens ao topo */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.container__texto {
+    position: relative; /* Adicionado para conter o posicionamento absoluto da imagem */
+    width: 45%; /* Largura dos textareas */
+}
+
+.container__input-container {
+    position: relative; /* Permite posicionar a imagem de forma relativa */
+}
+
+.container__input {
+    width: 100%;
+    padding: 25px;
+    font-size: 18px;
+    border: 3px ridge rgba(2, 27, 22, 0.993);
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0); /* Fundo branco com opacidade de 70% */
+    color: #ffffff; /* Cor do texto */
+    position: relative;
+}
+
+.imagem__resposta {
+    position: absolute;
+    bottom: -14px;
+    right: -17px;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    animation: floatAnimation1 5s ease-in-out infinite alternate;
+}
+
+.imagem__resposta__segunda {
+    position: absolute;
+    bottom: 110px;
+    right: 330px;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    animation: floatAnimation2 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatAnimation1 {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, 10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes floatAnimation2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, -10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.invisible {
+    display: none;
+}
+
+.container__titulo {
+    font-size: 24px; /* Tamanho do texto do título */
+    text-align: center; /* Alinhamento central */
+    margin-top: -250px; /* Espaçamento superior */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.container__botao {
+    font-family: "Kode Mono", monospace;
+    width: 330px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+
+.container__botao::before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.container__botao:active {
+    color: #000
+}
+
+.container__botao:active:after {
+    background: transparent;
+}
+
+.container__botao:hover:before {
+    opacity: 1;
+}
+
+.container__botao:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(4, 252, 202, 0.4);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+/* Keyframes para a animação de gradiente da borda */
+@keyframes borderGradient {
+    0% {
+        border-image-slice: 1;
+        border-image-source: linear-gradient(45deg, #ffff00, #00ff00, #0099ff, #001aff, #a200ff, #ff0055, #ff0000);
+    }
+    25% {
+        border-image-slice: 2;
+    }
+    50% {
+        border-image-slice: 3;
+    }
+    75% {
+        border-image-slice: 4;
+    }
+    100% {
+        border-image-slice: 1;
+        transform: rotate(360deg);
+        border-image-source: linear-gradient(45deg, #ffff00, #00ff00, #0099ff, #001aff, #a200ff, #ff0055, #ff0000);
+    }
+}
+
+/* Estilos para o footer */
+.rodape {
+    background-color: rgba(0, 0, 0, 0.);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+/* Ajustes adicionais para responsividade */
+@media (max-width: 480px) {
+    .container__titulo {
+        font-size: 18px; /* Reduz o tamanho do texto para telas menores */
+        margin-top: -150px; /* Ajusta o espaçamento superior para telas menores */
+    }
+
+    .imagem__resposta {
+        position: absolute;
+        bottom: -20px; /* Ajusta a posição inferior */
+        right: -21px; /* Ajusta a posição à direita */
+        top: -35px;
+    }
+
+    .container__botao {
+
+        margin: 5px 0; /* Espaçamento vertical entre botões */
+        padding: 10px; /* Reduz o padding dos botões */
+        font-size: 14px; /* Reduz o tamanho da fonte dos botões */
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .container__titulo {
+        font-size: 20px; /* Tamanho do texto para telas médias */
+        margin-top: -200px; /* Ajusta o espaçamento superior */
+    }
+
+    .imagem__resposta {
+        position: absolute;
+        bottom: -16px; /* Ajusta a posição inferior */
+        right: -12px; /* Ajusta a posição à direita */
+        top: -35px;
+    }
+
+    .container__botao {
+        margin: 7px 0; /* Espaçamento vertical entre botões */
+        padding: 12px 20px; /* Ajusta o padding dos botões */
+        font-size: 16px; /* Ajusta o tamanho da fonte dos botões */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container__titulo {
+        font-size: 22px; /* Tamanho do texto para tablets */
+        margin-top: -220px; /* Ajusta o espaçamento superior */
+    }
+
+    .imagem__resposta {
+        position: absolute;
+        bottom: -18px; /* Ajusta a posição inferior */
+        right: -12px; /* Ajusta a posição à direita */
+        top: -35px;
+    }
+
+    .container__botao {
+        margin: 10px 0; /* Espaçamento vertical entre botões */
+        padding: 14px 30px; /* Ajusta o padding dos botões */
+        font-size: 18px; /* Ajusta o tamanho da fonte dos botões */
+    }
+}
+
+@media (min-width: 1025px) {
+    .container__titulo {
+        font-size: 24px; /* Tamanho do texto para telas maiores */
+        margin-top: -250px; /* Ajusta o espaçamento superior */
+    }
+
+    .imagem__resposta {
+        position: absolute;
+        bottom: -22px; /* Ajusta a posição inferior */
+        right: -17px; /* Ajusta a posição à direita */
+        top: -35px;
+    }
+
+    .container__botao {
+        margin: 15px 0; /* Espaçamento vertical entre botões */
+        padding: 15px 60px; /* Padding original dos botões */
+        font-size: 18px; /* Tamanho original da fonte dos botões */
+    }
+}
