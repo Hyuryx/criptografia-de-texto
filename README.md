@@ -63,12 +63,15 @@ Para estruturar a lógica do projeto, utilizamos JavaScript ES6, selecionando el
     ```
     
 ## Uso
+1. Acesse o link: https://criptografia-de-texto.vercel.app/
 
-1.Abra o arquivo `index.html` em seu navegador para usar o aplicativo.
+2. Outra forma é abra o arquivo `index.html` em seu navegador para usar o aplicativo.
 
-2.Após digitar sua mensagem clique em `Criptografia` e na caixa a direita irá mostrar sua mensagem Criptografar, clique em copiar para adicionar a mensagem Criptografar ao clipboard.
+3. Após digitar sua mensagem clique em `Criptografia` e na caixa a direita irá mostrar sua mensagem Criptografada, clique em copiar para adicionar a mensagem Criptografada ao clipboard.
 
-3.Para Descriptografar basta colar a sua mensagem e clicar em `Descriptografar` e em seguida você irá ver sua mensagem descriptografada.
+4. Para Descriptografar basta colar a sua mensagem e clicar em `Descriptografar` e em seguida você irá ver sua mensagem descriptografada.
+
+5. Voçe também tem a opção de Resetar a mensagem, caso não queira dar continuidade na Criptografia/Descriptografar.
 
 
 ## Licença
