@@ -28,11 +28,11 @@ Este projeto é um aplicativo de criptografia e descriptografia de texto que per
     ° Stop: Para a reprodução do som completamente.
 
 # Interação com o Usuário
-    ° Campos de Texto:
-       ° Entrada: Um campo onde o usuário pode inserir o texto que deseja criptografar ou descriptografar.
-       ° Saída: Um campo que exibe o resultado da criptografia ou descriptografia.
+  # Campos de Texto:
+    ° Entrada: Um campo onde o usuário pode inserir o texto que deseja criptografar ou descriptografar.
+    ° Saída: Um campo que exibe o resultado da criptografia ou descriptografia.
 
-#Rodapé
+# Rodapé
       ° Contatos e Redes Sociais: No rodapé do site, há um link para o meu perfil no GitHub, onde os usuários podem encontrar outros projetos de minha autoria.
 
 ## Desenvolvimento
