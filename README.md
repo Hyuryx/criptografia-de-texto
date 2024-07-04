@@ -2,17 +2,18 @@
 
 Este aplicativo foi feito com base no "Challenge Decodificador de Texto" do projeto Oracle Next education em parceria com a Alura.
 
-## Sobre o Projeto
+# Sobre o Projeto
 
 Este projeto é um aplicativo de criptografia e descriptografia de texto que permite ao usuário criptografar e descriptografar mensagens. O objetivo do projeto é aplicar os conhecimentos adquiridos durante o curso de programação para iniciantes oferecido pela Alura em parceria com a Oracle.
 
 # Descrição do Site de Criptografia e Descriptografia de Textos
     Design e Estilo
-     ° Tema: O site possui um design inspirado em um ambiente hacker, com tons esverdeados.
-     ° Fundo: O fundo do site apresenta uma animação de códigos de programação, criando um clima imersivo.
-     ° Efeito de Partículas: Foi implementado um efeito de partículas em todo o corpo do site, adicionando dinamismo visual.
+      ° O site possui um design inspirado em um ambiente hacker, com tons esverdeados.
+      ° O fundo do site apresenta uma animação de códigos de programação, criando um clima imersivo.
+      ° Foi implementado um efeito de partículas em todo o corpo do site, adicionando dinamismo visual.
 
 # Funcionalidades Principais
+
 # 1. Botões de Ação:
 
       ° Criptografia: Botão que permite criptografar o texto inserido pelo usuário.
@@ -67,11 +68,11 @@ Para estruturar a lógica do projeto, utilizamos JavaScript ES6, selecionando el
 
 2. Outra forma é abra o arquivo `index.html` em seu navegador para usar o aplicativo.
 
-3. Após digitar sua mensagem clique em `Criptografia` e na caixa a direita irá mostrar sua mensagem Criptografada, clique em copiar para adicionar a mensagem Criptografada ao clipboard.
+3. Após digitar sua mensagem, clique em `Criptografia` e na caixa a direita irá mostrar sua mensagem Criptografada. Clique em copiar para adicionar a mensagem Criptografada ao clipboard.
 
-4. Para Descriptografar basta colar a sua mensagem e clicar em `Descriptografar` e em seguida você irá ver sua mensagem descriptografada.
+4. Para Descriptografar, basta colar a sua mensagem e clicar em `Descriptografar'. E em seguida você irá ver sua mensagem descriptografada.
 
-5. Voçe também tem a opção de Resetar a mensagem, caso não queira dar continuidade na Criptografia/Descriptografar.
+5. Você também tem a opção de Resetar a mensagem, caso não queira dar continuidade nas opções de Criptografia/Descriptografar.
 
 
 ## Licença
