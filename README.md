@@ -25,7 +25,7 @@ Este projeto é um aplicativo de criptografia e descriptografia de texto que per
 
 # 2. Sistema de Som:
 
-     ° Ambientação: Ao abrir a janela do navegador, o usuário é recebido com uma opção ao lado superior direito da pagina que permite um ambiente relaxante em quanto acessa.
+     ° Ambientação: Ao abrir a janela do navegador, o usuário é recebido com uma opção ao lado superior direito da pagina que permite um ambiente relaxante enquanto acessa.
 
 # 3. Controles de Som:
 
