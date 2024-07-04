@@ -20,7 +20,7 @@ Este projeto é um aplicativo de criptografia e descriptografia de texto que per
     ° Resetar: Botão que limpa os campos de entrada e saída de texto.
 
 2. Sistema de Som:
-    ° Ambientação: Ao abrir a janela do navegador, o usuário é recebido com um som ambiente suave.
+    ° Ambientação: Ao abrir a janela do navegador, o usuário é recebido com uma opção ao lado superior direito da pagina que permite um ambiente relaxante em quanto acessa.
 
 3. Controles de Som:
     ° Play: Inicia a reprodução do som ambiente.
