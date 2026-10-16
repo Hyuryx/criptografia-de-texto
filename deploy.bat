@@ -26,11 +26,8 @@ echo "%DEFAULT_MSG%"
 echo.
 set /p USER_MSG="Digite a mensagem do commit (opcional): "
 
-if "%USER_MSG%"=="" (
-    set COMMIT_MSG=%DEFAULT_MSG%
-) else (
-    set COMMIT_MSG=%USER_MSG%
-)
+set COMMIT_MSG=%DEFAULT_MSG%
+if not "%USER_MSG%"=="" set COMMIT_MSG=%USER_MSG%
 
 echo.
 echo ======================================================================
@@ -66,16 +63,20 @@ echo ======================================================================
 color 0A
 echo [SUCESSO] Codigo enviado com sucesso para o GitHub!
 echo.
-if exist ".vercel" (
-    echo [*] Projeto vinculado a Vercel detectado!
-    echo [*] Disparando publicacao direta na Vercel (npx vercel --prod --yes)...
-    call npx vercel --prod --yes
-) else (
-    echo [*] Caso a Vercel nao tenha disparado automaticamente via GitHub,
-    echo     voce pode publicar diretamente via CLI rodando:
-    echo     npx vercel login
-    echo     npx vercel --prod
-)
+if exist ".vercel" goto :deploy_vercel
+
+echo [*] Caso a Vercel nao tenha disparado automaticamente via GitHub,
+echo     voce pode publicar diretamente via CLI rodando:
+echo     npx vercel login
+echo     npx vercel --prod
+goto :fim_sucesso
+
+:deploy_vercel
+echo [*] Projeto vinculado a Vercel detectado!
+echo [*] Disparando publicacao direta na Vercel...
+call npx vercel --prod --yes
+
+:fim_sucesso
 echo.
 echo Repositorio : https://github.com/Hyuryx/criptografia-de-texto
 echo Link Vercel : https://criptografia-de-texto.vercel.app/
