@@ -66,8 +66,16 @@ echo ======================================================================
 color 0A
 echo [SUCESSO] Codigo enviado com sucesso para o GitHub!
 echo.
-echo [*] A Vercel detectara o push na branch 'main' e iniciara o deploy
-echo     automaticamente em instantes.
+if exist ".vercel" (
+    echo [*] Projeto vinculado a Vercel detectado!
+    echo [*] Disparando publicacao direta na Vercel (npx vercel --prod --yes)...
+    call npx vercel --prod --yes
+) else (
+    echo [*] Caso a Vercel nao tenha disparado automaticamente via GitHub,
+    echo     voce pode publicar diretamente via CLI rodando:
+    echo     npx vercel login
+    echo     npx vercel --prod
+)
 echo.
 echo Repositorio : https://github.com/Hyuryx/criptografia-de-texto
 echo Link Vercel : https://criptografia-de-texto.vercel.app/
