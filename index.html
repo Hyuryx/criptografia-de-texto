@@ -1,192 +1,250 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criptografia de Textos</title>
+    <title>Criptografia de Textos // Matrix Neural Cipher v2.0</title>
+    <meta name="description" content="Sistema avançado de criptografia e descriptografia de texto com estética Matrix futurista e algoritmo neural exclusivo.">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Share+Tech+Mono&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
     <link rel="icon" href="assets/icone.jpg" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Folha de Estilos Principal -->
     <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
-    <div class="audio-player">
-        <audio id="myAudio" autoplay>
-            <source src="music/jazz.mp3" type="audio/mpeg">
-            Seu navegador não suporta o elemento de áudio.
-        </audio>
-
-        <div class="controls">
-            <button class="player-btn" onclick="playAudio()">Play</button>
-            <button class="player-btn" onclick="pauseAudio()">Pause</button>
-            <button class="player-btn" onclick="stopAudio()">Stop</button>
-        </div>
-    </div>
-
-    <div class="video-container">
-        <video autoplay muted loop id="background-video">
+    <!-- Vídeo de Fundo Original Preservado -->
+    <div class="video-container" aria-hidden="true">
+        <video autoplay muted loop playsinline id="background-video">
             <source src="assets/video.mp4" type="video/mp4">
-            Seu navegador não suporta a tag de vídeo.
         </video>
     </div>
 
-    <div id="particles-js"></div>
+    <!-- Canvas de Chuva de Código Matrix Verde -->
+    <canvas id="matrixRainCanvas" class="matrix-rain" aria-hidden="true"></canvas>
 
-    <div class="overlay"></div>
+    <!-- Overlay com Scanlines e Gradiente Cyber -->
+    <div class="cyber-overlay" aria-hidden="true"></div>
 
-    <div class="container">
-        <div class="container__conteudo">
-            <h1 class="titulo__inicial">CRIPTOGRAFIA DE TEXTOS</h1>
-            <div class="container__texto-container">
-                <div class="container__texto">
-                    <div class="container__input-container">
-                        <textarea id="inputTexto" class="container__input" rows="4"
-                            placeholder="Digite um texto que você deseja criptografar..."></textarea>
-                        <h1 class="titulo__inicial input__titulo">Todos os caracteres maiúsculos e diacríticos serão
-                            convertidos.</h1>
-                        <div class="imagem__resposta__segunda">
-                            <img src="assets/fundo1.jpg" class="imagem__segunda" alt="Imagem da pessoa1">
-                        </div>
-                    </div>
+    <!-- Container Principal Responsivo -->
+    <div class="app-layout">
+        <!-- Topo / Cabeçalho Cyber -->
+        <header class="app-header">
+            <div class="app-header__status-line">
+                <span class="cyber-tag"><span class="cyber-tag__dot"></span> SISTEMA // ONLINE</span>
+                <span class="cyber-tag cyber-tag--node">NÓ_MATRIX: #MTX-NEURAL-09</span>
+                <a href="https://github.com/Hyuryx?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn-user-badge" title="Acessar perfil de Hyury no GitHub">
+                    <span class="badge-indicator"></span> HYURY
+                </a>
+            </div>
+
+            <div class="app-header__brand">
+                <div class="brand-avatar-box">
+                    <img src="assets/icone.jpg" alt="Ícone Matrix" class="brand-avatar-img">
+                    <div class="brand-avatar-ring"></div>
                 </div>
-                <div class="container__texto">
-                    <div class="container__input-container">
-                        <textarea id="outputTexto" class="container__input" rows="4" readonly
-                            placeholder="Nenhuma mensagem digitada..."></textarea>
-                        <div class="imagem__resposta" id="segundaImagem">
-                            <img src="assets/fundo2.jpg" class="imagem__resposta" alt="Imagem da pessoa2">
-                        </div>
-                    </div>
+                <div class="brand-text">
+                    <h1 class="glitch-title" data-text="CRIPTOGRAFIA DE TEXTOS">CRIPTOGRAFIA DE TEXTOS</h1>
+                    <p class="brand-subtitle">
+                        <span class="highlight-code">MATRIX_CIPHER_ENGINE // v2.0</span> — ALGORITMO NEURAL EXCLUSIVO
+                    </p>
                 </div>
             </div>
-            <div class="container__botoes">
-                <button class="botao__criptografar container__botao">CRIPTOGRAFIA</button>
-                <button class="botao__descriptografar container__botao">DESCRIPTOGRAFAR</button>
-                <button class="botao__copiar container__botao">COPIAR</button>
-                <button class="botao__resetar container__botao">RESETAR</button>
+        </header>
+
+        <!-- Grade de Terminais (Entrada e Saída) -->
+        <main class="terminals-grid">
+            <!-- TERMINAL 01: ENTRADA -->
+            <section class="cyber-card" id="terminalInput">
+                <div class="cyber-card__corner cyber-card__corner--tl"></div>
+                <div class="cyber-card__corner cyber-card__corner--tr"></div>
+                <div class="cyber-card__corner cyber-card__corner--bl"></div>
+                <div class="cyber-card__corner cyber-card__corner--br"></div>
+
+                <div class="cyber-card__header">
+                    <div class="cyber-card__title">
+                        <span class="terminal-prefix">&gt;_</span>
+                        <span class="terminal-name">TERMINAL_01 // ENTRADA DE DADOS</span>
+                    </div>
+                    <div class="cyber-card__actions">
+                        <span class="char-badge" id="inputCharCount">0 CARACTERES</span>
+                        <button class="btn-micro" id="btnColarInput" title="Colar da área de transferência">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            </svg>
+                            COLAR
+                        </button>
+                        <button class="btn-micro" id="btnLimparInput" title="Limpar terminal de entrada">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            </svg>
+                            LIMPAR
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cyber-card__body">
+                    <textarea 
+                        id="inputTexto" 
+                        class="cyber-textarea" 
+                        rows="7" 
+                        placeholder="Digite ou cole qualquer texto, mensagem, número ou código para criptografar..."></textarea>
+                </div>
+
+                <div class="cyber-card__footer">
+                    <div class="operator-badge">
+                        <img src="assets/fundo1.jpg" alt="Operador" class="operator-avatar">
+                        <div class="operator-info">
+                            <span class="operator-name">HYURY // OPERADOR</span>
+                            <span class="operator-status">CANAL SEGURO MTX</span>
+                        </div>
+                    </div>
+                    <div class="security-info">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span>Criptografa letras, números, acentuação, símbolos e emojis.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TERMINAL 02: SAÍDA CRIPTOGRÁFICA -->
+            <section class="cyber-card" id="terminalOutput">
+                <div class="cyber-card__corner cyber-card__corner--tl"></div>
+                <div class="cyber-card__corner cyber-card__corner--tr"></div>
+                <div class="cyber-card__corner cyber-card__corner--bl"></div>
+                <div class="cyber-card__corner cyber-card__corner--br"></div>
+
+                <div class="cyber-card__header">
+                    <div class="cyber-card__title">
+                        <span class="terminal-prefix">&gt;_</span>
+                        <span class="terminal-name">TERMINAL_02 // SAÍDA CIFRADA</span>
+                    </div>
+                    <div class="cyber-card__actions">
+                        <span class="char-badge" id="outputCharCount">0 CARACTERES</span>
+                        <button class="btn-micro btn-micro--glow" id="btnCopiar" title="Copiar resultado">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            COPIAR
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cyber-card__body cyber-card__body--output">
+                    <!-- Estado Vazio Holográfico -->
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-state__radar">
+                            <img src="assets/fundo2.jpg" alt="Avatar Matrix Holograma" class="empty-state__avatar">
+                            <div class="radar-scanline"></div>
+                            <div class="radar-ring radar-ring--1"></div>
+                            <div class="radar-ring radar-ring--2"></div>
+                        </div>
+                        <h3 class="empty-state__title">NENHUMA TRANSMISSÃO CIFRADA</h3>
+                        <p class="empty-state__text">
+                            Digite seu texto no Terminal 01 e selecione <span class="highlight-green">CRIPTOGRAFAR</span> para gerar o código exclusivo, ou cole um código para <span class="highlight-green">DESCRIPTOGRAFAR</span>.
+                        </p>
+                    </div>
+
+                    <!-- Textarea da Saída (Visível com Dados) -->
+                    <textarea 
+                        id="outputTexto" 
+                        class="cyber-textarea cyber-textarea--output hidden" 
+                        rows="7" 
+                        readonly 
+                        placeholder="Nenhuma mensagem cifrada..."></textarea>
+                </div>
+
+                <div class="cyber-card__footer">
+                    <div class="cipher-tag">
+                        <span class="cipher-tag__icon">🛡️</span>
+                        <span class="cipher-tag__text">PROTOCOLO EXCLUSIVO: MTX-SBOX-256</span>
+                    </div>
+                    <div class="cipher-key-hint">
+                        <span>DECODIFICAÇÃO EXCLUSIVA DESTE APLICATIVO</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Painel de Botões de Ação Cyberpunk -->
+        <section class="command-center" aria-label="Painel de Comandos">
+            <button class="cyber-btn cyber-btn--primary" id="btnCriptografar">
+                <span class="cyber-btn__glare"></span>
+                <span class="cyber-btn__content">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>CRIPTOGRAFAR</span>
+                </span>
+            </button>
+
+            <button class="cyber-btn cyber-btn--secondary" id="btnDescriptografar">
+                <span class="cyber-btn__glare"></span>
+                <span class="cyber-btn__content">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+                    </svg>
+                    <span>DESCRIPTOGRAFAR</span>
+                </span>
+            </button>
+
+            <button class="cyber-btn cyber-btn--alt" id="btnInverter" title="Inverte o conteúdo do Terminal 01 e do Terminal 02">
+                <span class="cyber-btn__glare"></span>
+                <span class="cyber-btn__content">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <path d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path>
+                    </svg>
+                    <span>INVERTER</span>
+                </span>
+            </button>
+
+            <button class="cyber-btn cyber-btn--danger" id="btnResetar" title="Limpa todos os campos e reinicia o estado">
+                <span class="cyber-btn__glare"></span>
+                <span class="cyber-btn__content">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <path d="M23 4v6h-6"></path>
+                        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                    </svg>
+                    <span>RESETAR</span>
+                </span>
+            </button>
+        </section>
+
+        <!-- Rodapé Futurista -->
+        <footer class="app-footer">
+            <div class="footer-meta">
+                <span>NÓ DE SEGURANÇA: MTX-NODE-01</span>
+                <span class="footer-meta__sep">|</span>
+                <span>STATUS: OPERACIONAL</span>
+                <span class="footer-meta__sep">|</span>
+                <span>ENCRYPT: PROPRIETARY BIJECTIVE MATRIX</span>
             </div>
-        </div>
+            <p class="footer-credit">
+                © 2026 ERREJOTA. Todos os direitos reservados.
+            </p>
+        </footer>
     </div>
 
-    <footer class="rodape">
-        <p>Desenvolvido por <a href="https://github.com/Hyuryx?tab=repositories">Hyury</a></p>
-    </footer>
+    <!-- Container de Notificações Toast -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-    <script src="js/json.js"></script>
-    <script src="js/som.js"></script>
-
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 5,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 6,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 400,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    </script>
-    
+    <!-- Scripts da Aplicação -->
+    <script src="js/cipher.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

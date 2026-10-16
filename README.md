@@ -1,80 +1,80 @@
-# Decodificador de Texto - Challenge Decodificador de Texto - T7 One
+# Criptografia de Textos // Matrix Neural Cipher v2.0
 
-Este aplicativo foi feito com base no "Challenge Decodificador de Texto" do projeto Oracle Next education em parceria com a Alura.
+![Status](https://img.shields.io/badge/STATUS-OPERACIONAL-00ff66?style=for-the-badge)
+![Encryption](https://img.shields.io/badge/CIPHER-MATRIX_NEURAL_v2.0-00f0ff?style=for-the-badge)
+![Tech](https://img.shields.io/badge/HTML5_CSS3_JS_ES6-000000?style=for-the-badge&logo=javascript)
 
-# Sobre o Projeto
+Aplicação web futurista de criptografia e decodificação de texto de alta segurança, inspirada na estética **Matrix / Cyberpunk**, com vídeo de fundo imersivo, chuva digital Matrix procedimental em canvas, terminal HUD responsivo e um motor criptográfico proprietário exclusivo.
 
-Este projeto é um aplicativo de criptografia e descriptografia de texto que permite ao usuário criptografar e descriptografar mensagens. O objetivo do projeto é aplicar os conhecimentos adquiridos durante o curso de programação para iniciantes oferecido pela Alura em parceria com a Oracle.
+---
 
-# Descrição do Site de Criptografia e Descriptografia de Textos
-    Design e Estilo
-      ° O site possui um design inspirado em um ambiente hacker, com tons esverdeados.
-      ° O fundo do site apresenta uma animação de códigos de programação, criando um clima imersivo.
-      ° Foi implementado um efeito de partículas em todo o corpo do site, adicionando dinamismo visual.
+## ⚡ Principais Melhorias Implementadas (v2.0)
 
-# Funcionalidades Principais
+### 1. 🧠 Motor Criptográfico Proprietário (Matrix Neural Cipher)
+- **Criptografia Real e Profunda:** Substituição do modelo simplificado de vogais por uma pipeline criptográfica robusta baseada em chave mestra proprietária, S-Box de 256 bytes exclusiva, difusão dinâmica com keystream modular e permutação de blocos.
+- **Suporte Total a Caracteres:** Criptografa e embaralha qualquer texto — incluindo letras maiúsculas e minúsculas, **números (0-9)**, acentuação em português (á, é, í, ó, ú, ç, ã, õ), símbolos especiais, quebras de linha e até emojis.
+- **Exclusividade da Aplicação:** O texto criptografado se transforma em uma sequência cifrada indecifrável por decodificadores convencionais externos (Base64, Rot13, etc.), sendo reversível exclusivamente por meio deste aplicativo.
+- **Compatibilidade Retroativa:** Consegue detectar e decodificar mensagens antigas no formato do desafio original.
 
-# 1. Botões de Ação:
+### 2. 🟢 Design Cyberpunk Matrix de Alto Padrão
+- **Paleta de Cores Matrix Verde Fluorescente:** Substituição dos gradientes genéricos por tons neon (`#00ff66`, `#00ff41`, `#39ff14`), superfícies em glassmorphism com desfoque de fundo e contornos cibernéticos chanfrados.
+- **Chuva Digital Matrix Interativa (Canvas):** Efeito clássico de caracteres Matrix caindo na tela com variações de brilho e velocidade, com botão para ativar/desativar em tempo real.
+- **Preservação do Vídeo de Fundo:** O vídeo original (`assets/video.mp4`) atua como camada de fundo em harmonia com a chuva de código e as scanlines CRT sutis.
 
-      ° Criptografia: Botão que permite criptografar o texto inserido pelo usuário.
+### 3. 📱 100% Responsivo e Fluido
+- Redesenhado do zero para adaptar-se com perfeição em **telas mobile (smartphones), tablets e monitores widescreen**.
+- Eliminação de posições absolutas desalinhadas e margens negativas; layout em grade flexível com terminais expansíveis.
 
-      ° Descriptografia: Botão que permite descriptografar o texto inserido.
+### 4. 🛠️ Controles e Usabilidade Futurista
+- **Animação de Decodificação Matrix:** Efeito visual de embaralhamento de caracteres nos terminais durante a criptografia e descriptografia.
+- **Inverter Terminais (SWAP):** Botão rápido para trocar o texto de entrada com a saída.
+- **Sistema de Notificações Toast:** Avisos holográficos flutuantes com barra de progresso para confirmações e alertas.
+- **Contador de Caracteres em Tempo Real:** Monitoramento dinâmico em cada terminal.
+- **Atalhos Rápidos:** Botões de copiar, colar da área de transferência e limpar terminal.
 
-      ° Copiar: Botão que copia o texto criptografado ou descriptografado para a área de transferência.
+---
 
-      ° Resetar: Botão que limpa os campos de entrada e saída de texto.
+## 🚀 Como Executar Localmente
 
-# 2. Sistema de Som:
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/Hyuryx/criptografia-de-texto.git
+   cd criptografia-de-texto
+   ```
 
-     ° Ambientação: Ao abrir a janela do navegador, o usuário é recebido com uma opção ao lado superior direito da pagina que permite um ambiente relaxante enquanto acessa.
+2. **Abra o projeto:**
+   - Basta abrir o arquivo `index.html` em qualquer navegador web moderno, ou
+   - Iniciar um servidor local (exemplo: `python -m http.server 8080` ou Live Server do VS Code).
 
-# 3. Controles de Som:
+3. **Deploy Automático para GitHub & Vercel:**
+   - Dê um duplo clique no arquivo `deploy.bat` na raiz do projeto. Ele adicionará as alterações, criará o commit e fará o push para o GitHub, disparando a publicação automática na Vercel.
 
-    ° Play: Inicia a reprodução do som ambiente.
-    ° Pause: Pausa a reprodução do som.
-    ° Stop: Para a reprodução do som completamente.
+---
 
-# Interação com o Usuário
-  # Campos de Texto:
-    ° Entrada: Um campo onde o usuário pode inserir o texto que deseja criptografar ou descriptografar.
-    ° Saída: Um campo que exibe o resultado da criptografia ou descriptografia.
+## 📂 Estrutura de Arquivos
 
-# Rodapé
-      ° Contatos e Redes Sociais: No rodapé do site, há um link para o meu perfil no GitHub, onde os usuários podem encontrar outros projetos de minha autoria.
+```
+criptografia-de-texto/
+├── assets/
+│   ├── fundo1.jpg       # Avatar / Operador Matrix
+│   ├── fundo2.jpg       # Holograma radar do terminal de saída
+│   ├── icone.jpg        # Favicon e logo do sistema
+│   └── video.mp4        # Vídeo de fundo em loop
+├── js/
+│   ├── app.js           # Orquestrador da interface, animações e toasts
+│   ├── cipher.js        # Motor Matrix Neural Cipher v2.0
+│   ├── json.js          # Arquivo de compatibilidade
+│   └── som.js           # Controlador do áudio HUD e equalizador
+├── music/
+│   └── jazz.mp3         # Trilha sonora ambiente
+├── style/
+│   └── style.css        # Folha de estilos Matrix com design system responsivo
+├── index.html           # Interface principal estruturada
+└── README.md            # Documentação completa
+```
 
-## Desenvolvimento
+---
 
-No desenvolvimento deste projeto, utilizamos HTML como base para criar a estrutura do `index.html`. O CSS foi empregado para estilizar o projeto, incluindo animações de partículas, ícones flutuantes, botões animados e a aplicação das cores escolhidas.
+## 🛡️ Licença
 
-Para estruturar a lógica do projeto, utilizamos JavaScript ES6, selecionando elementos pelo DOM e utilizando `import` e `export` para uma organização clara e legível dos scripts. Isso permitiu a importação eficiente dos áudios e a implementação da inteligência da página.
-
-## Estrutura do Projeto
-
-- **assets/**: Contém as imagens e video usados no projeto.
-- **js/**: Contém os arquivos JavaScript.
-- **music/**: Contém os arquivos de som.
-- **style/**: Contém os arquivos CSS divididos em vários módulos para maior facilidade de manutenção.
-- **index.html**: Arquivo HTML principal.
-
-## Instalação
-
-1. Faça um clone do repositorio utilizando o seguinte comando abaixo:
-    ```sh
-    git clone https://github.com/Hyuryx/criptografia-de-texto.git
-    ```
-    
-## Uso
-1. Acesse o link: https://criptografia-de-texto.vercel.app/
-
-2. Outra forma é abra o arquivo `index.html` em seu navegador para usar o aplicativo.
-
-3. Após digitar sua mensagem, clique em `Criptografia` e na caixa a direita irá mostrar sua mensagem Criptografada. Clique em copiar para adicionar a mensagem Criptografada ao clipboard.
-
-4. Para Descriptografar, basta colar a sua mensagem e clicar em `Descriptografar'. E em seguida você irá ver sua mensagem descriptografada.
-
-5. Você também tem a opção de Resetar a mensagem, caso não queira dar continuidade nas opções de Criptografia/Descriptografar.
-
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença MIT. Desenvolvido por [Hyury](https://github.com/Hyuryx?tab=repositories).
