@@ -6,7 +6,8 @@ $RECYCLE.BIN/
 .DS_Store
 
 # Editores & IDEs
-.vscode/
+.vscode/*
+!.vscode/tasks.json
 .idea/
 *.sublime-project
 *.sublime-workspace
