@@ -16,3 +16,6 @@ $RECYCLE.BIN/
 *.log
 scratch/
 test_*.js
+
+.vercel
+.env*
